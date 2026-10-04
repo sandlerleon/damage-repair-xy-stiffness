@@ -1,0 +1,4 @@
+== stiff_L2 (7 workers)
+stiff_L2: 124 tasks
+  stiff_L2 100/124  (1508 s)
+stiff_L2 done in 1664 s (124 runs)

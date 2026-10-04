@@ -1,0 +1,6 @@
+== tauphi (7 workers)
+tauphi: 120 tasks
+  tauphi 100/120  (458 s)
+tauphi done in 535 s (120 runs)
+== converge (7 workers)
+converge: 32 tasks

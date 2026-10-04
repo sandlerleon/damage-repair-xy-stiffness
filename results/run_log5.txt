@@ -1,0 +1,7 @@
+== closure0 (7 workers)
+closure0: 480 tasks
+  closure0 100/480  (212 s)
+  closure0 200/480  (411 s)
+  closure0 300/480  (618 s)
+  closure0 400/480  (832 s)
+closure0 done in 1005 s (480 runs)

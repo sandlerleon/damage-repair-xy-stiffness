@@ -1,0 +1,727 @@
+{
+ "sorbom2015": {
+  "doi": "10.1016/j.fusengdes.2015.07.008",
+  "title": "ARC: A compact, high-field, fusion nuclear science facility and demonstration power plant with demountable magnets",
+  "authors": [
+   {
+    "family": "Sorbom",
+    "given": "B.N."
+   },
+   {
+    "family": "Ball",
+    "given": "J."
+   },
+   {
+    "family": "Palmer",
+    "given": "T.R."
+   },
+   {
+    "family": "Mangiarotti",
+    "given": "F.J."
+   },
+   {
+    "family": "Sierchio",
+    "given": "J.M."
+   },
+   {
+    "family": "Bonoli",
+    "given": "P."
+   },
+   {
+    "family": "Kasten",
+    "given": "C."
+   },
+   {
+    "family": "Sutherland",
+    "given": "D.A."
+   },
+   {
+    "family": "Barnard",
+    "given": "H.S."
+   },
+   {
+    "family": "Haakonsen",
+    "given": "C.B."
+   },
+   {
+    "family": "Goh",
+    "given": "J."
+   },
+   {
+    "family": "Sung",
+    "given": "C."
+   },
+   {
+    "family": "Whyte",
+    "given": "D.G."
+   }
+  ],
+  "container": "Fusion Engineering and Design",
+  "year": 2015,
+  "volume": "100",
+  "issue": null,
+  "page": "378-405",
+  "type": "journal-article",
+  "cited_by": 582,
+  "notice": false,
+  "has_abstract": false
+ },
+ "creely2020": {
+  "doi": "10.1017/s0022377820001257",
+  "title": "Overview of the SPARC tokamak",
+  "authors": [
+   {
+    "family": "Creely",
+    "given": "A. J."
+   },
+   {
+    "family": "Greenwald",
+    "given": "M. J."
+   },
+   {
+    "family": "Ballinger",
+    "given": "S. B."
+   },
+   {
+    "family": "Brunner",
+    "given": "D."
+   },
+   {
+    "family": "Canik",
+    "given": "J."
+   },
+   {
+    "family": "Doody",
+    "given": "J."
+   },
+   {
+    "family": "Fülöp",
+    "given": "T."
+   },
+   {
+    "family": "Garnier",
+    "given": "D. T."
+   },
+   {
+    "family": "Granetz",
+    "given": "R."
+   },
+   {
+    "family": "Gray",
+    "given": "T. K."
+   },
+   {
+    "family": "Holland",
+    "given": "C."
+   },
+   {
+    "family": "Howard",
+    "given": "N. T."
+   },
+   {
+    "family": "Hughes",
+    "given": "J. W."
+   },
+   {
+    "family": "Irby",
+    "given": "J. H."
+   },
+   {
+    "family": "Izzo",
+    "given": "V. A."
+   },
+   {
+    "family": "Kramer",
+    "given": "G. J."
+   },
+   {
+    "family": "Kuang",
+    "given": "A. Q."
+   },
+   {
+    "family": "LaBombard",
+    "given": "B."
+   },
+   {
+    "family": "Lin",
+    "given": "Y."
+   },
+   {
+    "family": "Lipschultz",
+    "given": "B."
+   },
+   {
+    "family": "Logan",
+    "given": "N. C."
+   },
+   {
+    "family": "Lore",
+    "given": "J. D."
+   },
+   {
+    "family": "Marmar",
+    "given": "E. S."
+   },
+   {
+    "family": "Montes",
+    "given": "K."
+   },
+   {
+    "family": "Mumgaard",
+    "given": "R. T."
+   },
+   {
+    "family": "Paz-Soldan",
+    "given": "C."
+   },
+   {
+    "family": "Rea",
+    "given": "C."
+   },
+   {
+    "family": "Reinke",
+    "given": "M. L."
+   },
+   {
+    "family": "Rodriguez-Fernandez",
+    "given": "P."
+   },
+   {
+    "family": "Särkimäki",
+    "given": "K."
+   },
+   {
+    "family": "Sciortino",
+    "given": "F."
+   },
+   {
+    "family": "Scott",
+    "given": "S. D."
+   },
+   {
+    "family": "Snicker",
+    "given": "A."
+   },
+   {
+    "family": "Snyder",
+    "given": "P. B."
+   },
+   {
+    "family": "Sorbom",
+    "given": "B. N."
+   },
+   {
+    "family": "Sweeney",
+    "given": "R."
+   },
+   {
+    "family": "Tinguely",
+    "given": "R. A."
+   },
+   {
+    "family": "Tolman",
+    "given": "E. A."
+   },
+   {
+    "family": "Umansky",
+    "given": "M."
+   },
+   {
+    "family": "Vallhagen",
+    "given": "O."
+   },
+   {
+    "family": "Varje",
+    "given": "J."
+   },
+   {
+    "family": "Whyte",
+    "given": "D. G."
+   },
+   {
+    "family": "Wright",
+    "given": "J. C."
+   },
+   {
+    "family": "Wukitch",
+    "given": "S. J."
+   },
+   {
+    "family": "Zhu",
+    "given": "J."
+   },
+   {
+    "family": "",
+    "given": ""
+   }
+  ],
+  "container": "Journal of Plasma Physics",
+  "year": 2020,
+  "volume": "86",
+  "issue": "5",
+  "page": "865860502",
+  "type": "journal-article",
+  "cited_by": 457,
+  "notice": false,
+  "has_abstract": true
+ },
+ "zinkle2014": {
+  "doi": "10.1146/annurev-matsci-070813-113627",
+  "title": "Designing Radiation Resistance in Materials for Fusion Energy",
+  "authors": [
+   {
+    "family": "Zinkle",
+    "given": "S.J."
+   },
+   {
+    "family": "Snead",
+    "given": "L.L."
+   }
+  ],
+  "container": "Annual Review of Materials Research",
+  "year": 2014,
+  "volume": "44",
+  "issue": "1",
+  "page": "241-267",
+  "type": "journal-article",
+  "cited_by": 779,
+  "notice": false,
+  "has_abstract": true
+ },
+ "prokopec2015": {
+  "doi": "10.1088/0953-2048/28/1/014005",
+  "title": "Suitability of coated conductors for fusion magnets in view of their radiation response",
+  "authors": [
+   {
+    "family": "Prokopec",
+    "given": "R"
+   },
+   {
+    "family": "Fischer",
+    "given": "D X"
+   },
+   {
+    "family": "Weber",
+    "given": "H W"
+   },
+   {
+    "family": "Eisterer",
+    "given": "M"
+   }
+  ],
+  "container": "Superconductor Science and Technology",
+  "year": 2015,
+  "volume": "28",
+  "issue": "1",
+  "page": "014005",
+  "type": "journal-article",
+  "cited_by": 65,
+  "notice": false,
+  "has_abstract": false
+ },
+ "fischer2018": {
+  "doi": "10.1088/1361-6668/aaadf2",
+  "title": "The effect of fast neutron irradiation on the superconducting properties of REBCO coated conductors with and without artificial pinning centers",
+  "authors": [
+   {
+    "family": "Fischer",
+    "given": "D X"
+   },
+   {
+    "family": "Prokopec",
+    "given": "R"
+   },
+   {
+    "family": "Emhofer",
+    "given": "J"
+   },
+   {
+    "family": "Eisterer",
+    "given": "M"
+   }
+  ],
+  "container": "Superconductor Science and Technology",
+  "year": 2018,
+  "volume": "31",
+  "issue": "4",
+  "page": "044006",
+  "type": "journal-article",
+  "cited_by": 138,
+  "notice": false,
+  "has_abstract": false
+ },
+ "adams2023": {
+  "doi": "10.1088/1361-6668/aced9e",
+  "title": "Comparing neutron and helium ion irradiation damage of REBa2Cu3O 7−δ coated conductor using x-ray absorption spectroscopy",
+  "authors": [
+   {
+    "family": "Adams",
+    "given": "K"
+   },
+   {
+    "family": "Iliffe",
+    "given": "W"
+   },
+   {
+    "family": "Nicholls",
+    "given": "R J"
+   },
+   {
+    "family": "He",
+    "given": "G"
+   },
+   {
+    "family": "Diaz-Moreno",
+    "given": "S"
+   },
+   {
+    "family": "Mosselmans",
+    "given": "F"
+   },
+   {
+    "family": "Fischer",
+    "given": "D"
+   },
+   {
+    "family": "Eisterer",
+    "given": "M"
+   },
+   {
+    "family": "Grovenor",
+    "given": "C R M"
+   },
+   {
+    "family": "Speller",
+    "given": "S C"
+   }
+  ],
+  "container": "Superconductor Science and Technology",
+  "year": 2023,
+  "volume": "36",
+  "issue": "10",
+  "page": "10LT01",
+  "type": "journal-article",
+  "cited_by": 21,
+  "notice": false,
+  "has_abstract": true
+ },
+ "unterrainer2022": {
+  "doi": "10.1088/1361-6668/ac4636",
+  "title": "Recovering the performance of irradiated high-temperature superconductors for use in fusion magnets",
+  "authors": [
+   {
+    "family": "Unterrainer",
+    "given": "Raphael"
+   },
+   {
+    "family": "Fischer",
+    "given": "David X"
+   },
+   {
+    "family": "Lorenz",
+    "given": "Alena"
+   },
+   {
+    "family": "Eisterer",
+    "given": "Michael"
+   }
+  ],
+  "container": "Superconductor Science and Technology",
+  "year": 2022,
+  "volume": "35",
+  "issue": "4",
+  "page": "04LT01",
+  "type": "journal-article",
+  "cited_by": 27,
+  "notice": false,
+  "has_abstract": true
+ },
+ "beasley1979": {
+  "doi": "10.1103/physrevlett.42.1165",
+  "title": "Possibility of Vortex-Antivortex Pair Dissociation in Two-Dimensional Superconductors",
+  "authors": [
+   {
+    "family": "Beasley",
+    "given": "M. R."
+   },
+   {
+    "family": "Mooij",
+    "given": "J. E."
+   },
+   {
+    "family": "Orlando",
+    "given": "T. P."
+   }
+  ],
+  "container": "Physical Review Letters",
+  "year": 1979,
+  "volume": "42",
+  "issue": "17",
+  "page": "1165-1168",
+  "type": "journal-article",
+  "cited_by": 562,
+  "notice": false,
+  "has_abstract": false
+ },
+ "hebard1980": {
+  "doi": "10.1103/physrevlett.44.291",
+  "title": "Evidence for the Kosterlitz-Thouless Transition in Thin Superconducting Aluminum Films",
+  "authors": [
+   {
+    "family": "Hebard",
+    "given": "A. F."
+   },
+   {
+    "family": "Fiory",
+    "given": "A. T."
+   }
+  ],
+  "container": "Physical Review Letters",
+  "year": 1980,
+  "volume": "44",
+  "issue": "4",
+  "page": "291-294",
+  "type": "journal-article",
+  "cited_by": 208,
+  "notice": false,
+  "has_abstract": false
+ },
+ "halperin1979": {
+  "doi": "10.1007/bf00116988",
+  "title": "Resistive transition in superconducting films",
+  "authors": [
+   {
+    "family": "Halperin",
+    "given": "B. I."
+   },
+   {
+    "family": "Nelson",
+    "given": "David R."
+   }
+  ],
+  "container": "Journal of Low Temperature Physics",
+  "year": 1979,
+  "volume": "36",
+  "issue": "5-6",
+  "page": "599-616",
+  "type": "journal-article",
+  "cited_by": 906,
+  "notice": false,
+  "has_abstract": false
+ },
+ "kt1973": {
+  "doi": "10.1088/0022-3719/6/7/010",
+  "title": "Ordering, metastability and phase transitions in two-dimensional systems",
+  "authors": [
+   {
+    "family": "Kosterlitz",
+    "given": "J M"
+   },
+   {
+    "family": "Thouless",
+    "given": "D J"
+   }
+  ],
+  "container": "Journal of Physics C: Solid State Physics",
+  "year": 1973,
+  "volume": "6",
+  "issue": "7",
+  "page": "1181-1203",
+  "type": "journal-article",
+  "cited_by": 8831,
+  "notice": false,
+  "has_abstract": false
+ },
+ "nk1977": {
+  "doi": "10.1103/physrevlett.39.1201",
+  "title": "Universal Jump in the Superfluid Density of Two-Dimensional Superfluids",
+  "authors": [
+   {
+    "family": "Nelson",
+    "given": "David R."
+   },
+   {
+    "family": "Kosterlitz",
+    "given": "J. M."
+   }
+  ],
+  "container": "Physical Review Letters",
+  "year": 1977,
+  "volume": "39",
+  "issue": "19",
+  "page": "1201-1205",
+  "type": "journal-article",
+  "cited_by": 1235,
+  "notice": false,
+  "has_abstract": false
+ },
+ "wm1988": {
+  "doi": "10.1103/physrevb.37.5986",
+  "title": "Monte Carlo determination of the critical temperature for the two-dimensional XY model",
+  "authors": [
+   {
+    "family": "Weber",
+    "given": "Hans"
+   },
+   {
+    "family": "Minnhagen",
+    "given": "Petter"
+   }
+  ],
+  "container": "Physical Review B",
+  "year": 1988,
+  "volume": "37",
+  "issue": "10",
+  "page": "5986-5989",
+  "type": "journal-article",
+  "cited_by": 223,
+  "notice": false,
+  "has_abstract": false
+ },
+ "hasenbusch2005": {
+  "doi": "10.1088/0305-4470/38/26/003",
+  "title": "The two-dimensional XY model at the transition temperature: a high-precision Monte Carlo study",
+  "authors": [
+   {
+    "family": "Hasenbusch",
+    "given": "Martin"
+   }
+  ],
+  "container": "Journal of Physics A: Mathematical and General",
+  "year": 2005,
+  "volume": "38",
+  "issue": "26",
+  "page": "5869-5883",
+  "type": "journal-article",
+  "cited_by": 151,
+  "notice": false,
+  "has_abstract": false
+ },
+ "newman2000": {
+  "doi": "10.1103/physrevlett.85.4104",
+  "title": "Efficient Monte Carlo Algorithm and High-Precision Results for Percolation",
+  "authors": [
+   {
+    "family": "Newman",
+    "given": "M. E. J."
+   },
+   {
+    "family": "Ziff",
+    "given": "R. M."
+   }
+  ],
+  "container": "Physical Review Letters",
+  "year": 2000,
+  "volume": "85",
+  "issue": "19",
+  "page": "4104-4107",
+  "type": "journal-article",
+  "cited_by": 483,
+  "notice": false,
+  "has_abstract": false
+ },
+ "costa2014": {
+  "doi": "10.1088/1742-6596/487/1/012008",
+  "title": "Kosterlitz-Thouless Transition: The Diluted XY model",
+  "authors": [
+   {
+    "family": "Costa",
+    "given": "B V"
+   },
+   {
+    "family": "Lima",
+    "given": "L S"
+   },
+   {
+    "family": "Coura",
+    "given": "P Z"
+   },
+   {
+    "family": "Leonel",
+    "given": "S A"
+   },
+   {
+    "family": "Lima",
+    "given": "A B"
+   }
+  ],
+  "container": "Journal of Physics: Conference Series",
+  "year": 2014,
+  "volume": "487",
+  "issue": null,
+  "page": "012008",
+  "type": "journal-article",
+  "cited_by": 2,
+  "notice": false,
+  "has_abstract": false
+ },
+ "rao1990": {
+  "doi": "10.1103/physrevb.42.856",
+  "title": "Magnetic hysteresis in two model spin systems",
+  "authors": [
+   {
+    "family": "Rao",
+    "given": "Madan"
+   },
+   {
+    "family": "Krishnamurthy",
+    "given": "H. R."
+   },
+   {
+    "family": "Pandit",
+    "given": "Rahul"
+   }
+  ],
+  "container": "Physical Review B",
+  "year": 1990,
+  "volume": "42",
+  "issue": "1",
+  "page": "856-884",
+  "type": "journal-article",
+  "cited_by": 313,
+  "notice": false,
+  "has_abstract": false
+ },
+ "efron1979": {
+  "doi": "10.1214/aos/1176344552",
+  "title": "Bootstrap Methods: Another Look at the Jackknife",
+  "authors": [
+   {
+    "family": "Efron",
+    "given": "B."
+   }
+  ],
+  "container": "The Annals of Statistics",
+  "year": 1979,
+  "volume": "7",
+  "issue": "1",
+  "page": null,
+  "type": "journal-article",
+  "cited_by": 12933,
+  "notice": false,
+  "has_abstract": false
+ },
+ "madras1988": {
+  "doi": "10.1007/bf01022990",
+  "title": "The pivot algorithm: A highly efficient Monte Carlo method for the self-avoiding walk",
+  "authors": [
+   {
+    "family": "Madras",
+    "given": "Neal"
+   },
+   {
+    "family": "Sokal",
+    "given": "Alan D."
+   }
+  ],
+  "container": "Journal of Statistical Physics",
+  "year": 1988,
+  "volume": "50",
+  "issue": "1-2",
+  "page": "109-186",
+  "type": "journal-article",
+  "cited_by": 818,
+  "notice": false,
+  "has_abstract": false
+ }
+}
