@@ -5,7 +5,7 @@ ORCID [0009-0007-4584-808X](https://orcid.org/0009-0007-4584-808X)
 
 This repository holds the kinetic Monte Carlo study behind the manuscript *"Damage–repair kinetics and phase stiffness
 in a site-diluted XY model: implications for irradiated superconductors"* (prepared for **Superconductor Science and
-Technology**; preprint [10.5281/zenodo.23138197](https://doi.org/10.5281/zenodo.23138197)). Every number and every figure
+Technology**; preprint [10.5281/zenodo.23149158](https://doi.org/10.5281/zenodo.23149158), manuscript v2). Every number and every figure
 of the manuscript is produced by the scripts here, from the raw run outputs that are also here.
 
 ## The model
