@@ -5,7 +5,7 @@ ORCID [0009-0007-4584-808X](https://orcid.org/0009-0007-4584-808X)
 
 This repository holds the kinetic Monte Carlo study behind the manuscript *"Damage–repair kinetics and phase stiffness
 in a site-diluted XY model: implications for irradiated superconductors"* (prepared for **Superconductor Science and
-Technology**; preprint [10.5281/zenodo.23149158](https://doi.org/10.5281/zenodo.23149158), manuscript v2). Every number and every figure
+Technology**; preprint [10.5281/zenodo.23173812](https://doi.org/10.5281/zenodo.23173812), manuscript v3). Every number and every figure
 of the manuscript is produced by the scripts here, from the raw run outputs that are also here.
 
 ## The model
@@ -49,7 +49,7 @@ code/analyze*.py      raw runs -> results/results.json (analyze_e.py: the twist-
 code/meanfield.py     the mean-field reduction (windows, beta_c)
 code/figures.py       Figures 1–8 -> figures/
 results/*_raw.json    raw outputs of every run (results/run_log*.txt = logs)
-manuscript/           manuscript v1 and v2, cover letter, and the build scripts that read results.json
+manuscript/           manuscript v1–v3, cover letter, and the build scripts that read results.json
 tools/                Zenodo deposit scripts (token read from ZENODO_TOKEN, never stored)
 ```
 
@@ -73,7 +73,7 @@ realizations; autocorrelation times use Sokal's automatic window.
 
 ## Citation
 
-Software: v1.1.0 (manuscript v2) [10.5281/zenodo.23149157](https://doi.org/10.5281/zenodo.23149157); v1.0.0 (manuscript v1) [10.5281/zenodo.23138195](https://doi.org/10.5281/zenodo.23138195); concept DOI, always the latest, [10.5281/zenodo.23138194](https://doi.org/10.5281/zenodo.23138194). Update rules of the underlying framework:
+Software: v1.2.0 (manuscript v3) [10.5281/zenodo.23173811](https://doi.org/10.5281/zenodo.23173811); v1.1.0 (manuscript v2) [10.5281/zenodo.23149157](https://doi.org/10.5281/zenodo.23149157); v1.0.0 (manuscript v1) [10.5281/zenodo.23138195](https://doi.org/10.5281/zenodo.23138195); concept DOI, always the latest, [10.5281/zenodo.23138194](https://doi.org/10.5281/zenodo.23138194). Update rules of the underlying framework:
 [MyUncle](https://github.com/sandlerleon/MyUncle) ([10.5281/zenodo.21223569](https://doi.org/10.5281/zenodo.21223569)).
 
 MIT licence.

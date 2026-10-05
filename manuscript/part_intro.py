@@ -16,8 +16,7 @@ P("The superfluid density is the physical counterpart of the phase stiffness of 
   "therefore a two-dimensional XY model of the local phase, in which sites are damaged (pair breaking) and repaired. Diluted XY models "
   "and their BKT transitions have been studied [[costa2014]]; what is new here is the kinetics. In the model used, damage is faster where phase order "
   "is already disrupted, as would be the case if disorder lowered the pair amplitude locally, and repair acts at a stochastic rate. The model is "
-  "implemented in the open-source MyUncle framework [[sandler_myuncle]], and a companion study examines the same order-dependent-degradation "
-  "mechanism in a rotor lattice without superconducting context [[sandler_physa]].")
+  "implemented in the open-source MyUncle framework [[sandler_myuncle]].")
 P("We ask four questions. Does state-dependent damage make the response to the repair rate bistable and hysteretic, as a mean-field reduction "
   "suggests? Does recovery restore genuine phase *stiffness*, not merely alignment in an external field? Is the repair-to-damage ratio ρ the "
   "right control parameter, or does the competition between the phase-relaxation and damage–repair timescales matter? And what can such a model say "

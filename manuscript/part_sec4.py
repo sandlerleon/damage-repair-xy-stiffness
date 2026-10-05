@@ -87,3 +87,22 @@ P("A defensible calibration needs more than two annealing numbers. It requires (
   "fluence or a different tape, on which the mapping of Section 4.2 and the spectrum of Section 4.3 are tested; (iv) an extension of the model by pinning, "
   "to address the critical current, and by interlayer coupling, since the *T*_{c} of the conductor is not that of a single plane; and (v) spatially "
   "correlated damage. We have not attempted any of these, and the model remains uncalibrated.")
+HD("4.5 Experimental validation using fission-reactor irradiation", 2)
+P("A direct test of the damage–repair framework would use REBCO coated-conductor specimens exposed to controlled neutron irradiation in a materials-test or research "
+  "fission reactor, an established route to displacement damage in these conductors [[prokopec2015,fischer2018,unterrainer2022]]. Specimens irradiated to several damage "
+  "levels would then be subjected to isochronal or isothermal anneals, with *T*_{c}, the critical current density and, where experimentally accessible, a quantity "
+  "proportional to the stiffness (the penetration depth, Section 4.2) measured before irradiation, after irradiation and after each annealing step. This would show whether "
+  "recovery depends only on the accumulated damage and the annealing state, or also on the timescales of damage and recovery. We propose it as a pathway to "
+  "validation, not as evidence that the model has been validated.")
+P("The most discriminating comparison follows from Section 3.4: specimens that reach the same accumulated damage through different damage-rate histories (for example "
+  "the same fluence at flux densities differing by orders of magnitude, or with interruptions), followed by the same recovery protocol. If the recovery differs "
+  "systematically with the irradiation history at comparable accumulated damage, this supports the finding that the repair-to-damage ratio alone is not sufficient "
+  "when the damage is not slow compared with the relaxation of the phase. If the measurements collapse onto the accumulated damage and the annealing state, the "
+  "experiments are in the slow regime, where ρ controls the state, and the timescale parameter Ω of the model is constrained to be small. The model’s statement is about "
+  "damage and recovery acting together, so the test is most direct at an irradiation temperature at which recovery is active.")
+P("A second comparison follows from Section 3.5: specimens with a similar removed or damaged fraction but different spatial correlations of the defects, for "
+  "example neutron and light-ion irradiation, whose defect-cascade sizes differ, characterized by microscopy or spectroscopy. The model predicts that, at the same "
+  "fraction, correlated damage preserves more stiffness than independent point damage, so that equal nominal damage should not give equal *T*_{c} or superfluid density.")
+P("Such experiments would not reproduce the fusion environment: fission and D–T fusion neutron spectra differ substantially, and transmutation, displacement "
+  "cascades, dose rate and operating temperature must be accounted for, so that spectrum- and dpa-aware comparisons are required. Their role would be to calibrate and "
+  "to falsify the kinetic framework before it is extrapolated to fusion-relevant conditions.")

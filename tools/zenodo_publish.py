@@ -97,9 +97,12 @@ def clear_inherited(d):
             pass
 
 
-NEWVER = ("<p><strong>Version %s.</strong> Revised after review: adds control simulations of the twist response (clean lattices, imposed windings, an independent "
-          "static code; Section 2.5), qualifies the threshold brackets as finite-size estimates, presents the slow-damage convergence as numerical evidence, removes the "
-          "interpretation of the sites-per-dpa factor, and qualifies the annealing analysis.</p>")
+NOTES = {"1.1.0": "Revised after review: adds control simulations of the twist response (clean lattices, imposed windings, an independent static code; Section 2.5), "
+                  "qualifies the threshold brackets as finite-size estimates, presents the slow-damage convergence as numerical evidence, removes the interpretation of "
+                  "the sites-per-dpa factor, and qualifies the annealing analysis.",
+         "1.2.0": "Adds a subsection on experimental validation using fission-reactor irradiation (Section 4.5), softens two statements of the abstract, and removes "
+                  "a reference to separate work."}
+NEWVER = "<p><strong>Version %s.</strong> " + NOTES.get(VERSION, "Revised.") + "</p>"
 
 
 def software():
@@ -131,7 +134,6 @@ def preprint():
             "license": "cc-by-4.0", "version": MS, "language": "eng", "prereserve_doi": {"doi": d["doi"]},
             "related_identifiers": [{"identifier": st.get("software_" + VERSION, st["software"])["doi"], "relation": "isSupplementedBy", "scheme": "doi"},
                                     {"identifier": GITHUB, "relation": "isSupplementedBy", "scheme": "url"},
-                                    {"identifier": "10.5281/zenodo.21210708", "relation": "references", "scheme": "doi"},
                                     {"identifier": "10.5281/zenodo.21223569", "relation": "references", "scheme": "doi"}]}
     finish(d["id"], meta)
 

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Cover letter for the submission to Superconductor Science and Technology (original submission); numbers from results.json.
 
-    python build_cover_letter.py     ->  out/Cover_Letter_SST_v2.docx
+    python build_cover_letter.py     ->  out/Cover_Letter_SST_v3.docx
 """
 import json
 import math
@@ -18,7 +18,7 @@ from docx_helpers import new_document  # noqa: E402
 
 R = json.load(open(os.path.join(HERE, "..", "results", "results.json"), encoding="utf-8"))
 ZEN = json.load(open(os.path.join("C:" + os.sep, "YouTube", "_dxy_zenodo_state.json")))
-SW, PP = ZEN.get("software_1.1.0", ZEN["software"])["doi"], ZEN.get("publication_v2", ZEN["publication"])["doi"]
+SW, PP = ZEN["software_1.2.0"]["doi"], ZEN["publication_v3"]["doi"]
 REPO = "https://github.com/sandlerleon/damage-repair-xy-stiffness"
 TH = R["thresholds"]
 SL = R["timescale"]["slow_limit"]["5"]
@@ -59,7 +59,7 @@ def bullet(text):
 for line in ("Leon Sandler", "Independent researcher, Northbrook, Illinois, USA", "sandler.leon@gmail.com", "ORCID: https://orcid.org/0009-0007-4584-808X"):
     para(line, after=0)
 para("")
-para("4 October 2026")
+para("5 October 2026")
 para("The Editors\nSuperconductor Science and Technology", after=10)
 para("Submission of a paper: “%s”" % TITLE, bold=True, after=10)
 para("Dear Editors,")
@@ -85,16 +85,15 @@ bullet("Static random dilution of the lattice loses stiffness at a removed fract
        "illustrative annealing analysis is compatible with a broad activation spectrum, whose width the two reported recoveries do not determine." %
        (round(F["f_inf"], 2), round(MP["sites_per_dpa"])))
 para("The model is phenomenological and is not calibrated to any conductor; it has no pinning, so it says nothing about the critical current or its initial rise "
-     "with fluence, and I have said so in the paper. The experimental values quoted are taken from the cited papers.", after=6)
+     "with fluence, and I have said so in the paper. The experimental values quoted are taken from the cited papers. The paper closes with a proposed fission-reactor irradiation test (the same accumulated damage reached with different damage-rate histories, and different defect morphologies) that could falsify its kinetic claims.", after=6)
 para("Data, code and disclosures", bold=True, after=3)
 para("All code, raw data and analysis scripts are public at %s, archived at https://doi.org/%s; the manuscript is available as a preprint at https://doi.org/%s. "
-     "The simulation engine reproduces the update rules of the open-source MyUncle framework bit for bit. A separate manuscript on the same order-dependent-degradation "
-     "mechanism in a rotor lattice without superconducting context (preprint https://doi.org/10.5281/zenodo.21210708) is intended for a different journal; the present paper does not depend on its conclusions. This manuscript "
-     "has not been published and is not under consideration by any other journal. I declare no competing interests and no funding, and the use of AI-assisted tools is "
+     "The simulation engine reproduces the update rules of the open-source MyUncle framework bit for bit. "
+     "This manuscript has not been published and is not under consideration by any other journal. I declare no competing interests and no funding, and the use of AI-assisted tools is "
      "declared in the manuscript." % (REPO, SW, PP))
 para("Thank you for considering the paper.")
 para("Yours sincerely,", after=18)
 para("Leon Sandler")
-out = os.path.join(HERE, "out", "Cover_Letter_SST_v2.docx")
+out = os.path.join(HERE, "out", "Cover_Letter_SST_v3.docx")
 doc.save(out)
 print("saved", out)

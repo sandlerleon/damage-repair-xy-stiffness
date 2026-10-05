@@ -65,8 +65,6 @@ MANUAL = {
     "tinkham2004": "Tinkham M 2004 Introduction to Superconductivity 2nd edn (Mineola, NY: Dover)",
     "sandler_myuncle": "Sandler L 2026 MyUncle: a compact maintenance-lattice framework for order-persistence simulations across disciplines "
                        "(Zenodo) https://doi.org/10.5281/zenodo.21223569",
-    "sandler_physa": "Sandler L 2026 Self-maintained order and hysteretic collapse in a non-equilibrium rotational lattice (Zenodo preprint) "
-                     "https://doi.org/10.5281/zenodo.21210708",
 }
 
 
