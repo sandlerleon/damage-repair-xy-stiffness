@@ -91,7 +91,10 @@ def finish(did, meta):
 def clear_inherited(d):
     """A new-version draft starts with the files of the previous version; remove them so that only this version's files remain."""
     for fid in d.get("inherited_files", []):
-        req("DELETE", "%s/deposit/depositions/%s/files/%s" % (API, d["id"], fid))
+        try:
+            req("DELETE", "%s/deposit/depositions/%s/files/%s" % (API, d["id"], fid))
+        except SystemExit:          # already removed (e.g. by a dry run)
+            pass
 
 
 NEWVER = ("<p><strong>Version %s.</strong> Revised after review: adds control simulations of the twist response (clean lattices, imposed windings, an independent "
