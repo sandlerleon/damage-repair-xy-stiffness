@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Cover letter for the submission to Superconductor Science and Technology (original submission); numbers from results.json.
 
-    python build_cover_letter.py     ->  out/Cover_Letter_SST_v1.docx
+    python build_cover_letter.py     ->  out/Cover_Letter_SST_v2.docx
 """
 import json
 import math
@@ -18,7 +18,7 @@ from docx_helpers import new_document  # noqa: E402
 
 R = json.load(open(os.path.join(HERE, "..", "results", "results.json"), encoding="utf-8"))
 ZEN = json.load(open(os.path.join("C:" + os.sep, "YouTube", "_dxy_zenodo_state.json")))
-SW, PP = ZEN["software"]["doi"], ZEN["publication"]["doi"]
+SW, PP = ZEN.get("software_1.1.0", ZEN["software"])["doi"], ZEN.get("publication_v2", ZEN["publication"])["doi"]
 REPO = "https://github.com/sandlerleon/damage-repair-xy-stiffness"
 TH = R["thresholds"]
 SL = R["timescale"]["slow_limit"]["5"]
@@ -74,14 +74,15 @@ bullet("A mean-field reduction of damage–repair kinetics, re-derived from the 
        "%.4f in the coherence, none significant after Holm correction; quasi-static ramps close), because the closure of the reduction fails: the multiplier "
        "of the damage rate that the lattice applies is a smooth function of the damaged fraction. The statement is made for the ranges tested." % (10, BS["max_abs_diff"]))
 bullet("Without a field, and with repair that preserves the phase symmetry, repair restores spontaneous phase coherence and a stiffness, measured as the "
-       "twist response of the non-equilibrium steady state with the winding number recorded, above a threshold ratio of repair to damage, in the thermodynamic limit "
-       "at ρ = %s (repair that leaves the phase unchanged) and %s (repair to the phase of the neighbors), against about 2.5 without state-dependent damage. The "
-       "equilibrium helicity-modulus formula underestimates this stiffness by up to about %d%% and is negative where the stiffness vanishes." % (br("keep"), br("neighbor"), under))
-bullet("The repair-to-damage ratio controls the state only when damage is slow compared with phase relaxation: three repair rules that differ by %.2f in the coherence "
-       "at finite rates agree within %.3f as the damage rate falls, and the equilibrium formula converges to the twist response." % (SL["spread_base"], SL["spread_slow"]))
+       "twist response of the non-equilibrium steady state with the winding number recorded, above a threshold ratio of repair to damage; finite-size scans (sizes to 96 and 64, operational cutoffs, not a "
+       "thermodynamic-limit determination) place it at ρ = %s (repair that leaves the phase unchanged) and %s (repair to the phase of the neighbors), against about 2.5 without state-dependent damage. The "
+       "equilibrium helicity-modulus formula underestimates this stiffness by up to about %d%% and is negative where the stiffness vanishes. The twist response is validated "
+       "against the equilibrium helicity modulus on clean and diluted lattices, with imposed windings, and against an independent static code." % (br("keep"), br("neighbor"), under))
+bullet("Numerically, the repair-to-damage ratio controls the state ever better as damage becomes slow compared with phase relaxation: three repair rules that differ by %.2f in the coherence "
+       "at finite rates agree within %.3f at the slowest damage scanned (the limit itself is not claimed), and the equilibrium formula approaches the twist response." % (SL["spread_base"], SL["spread_slow"]))
 bullet("Static random dilution of the lattice loses stiffness at a removed fraction of %.2f ± 0.01 (sizes to 96, finite-size extrapolation and its sensitivity "
-       "reported); compact damage clusters tolerate considerably more. An illustrative mapping to displacement damage gives about %d model sites per dpa, and an "
-       "illustrative annealing analysis shows that a recovery growing linearly over 150–400 °C needs an activation spectrum of order 1 eV or more in width." %
+       "reported); compact damage clusters tolerate considerably more. An illustrative effective mapping to displacement damage gives about %d model sites per dpa (a conversion factor, with no further physical interpretation), and an "
+       "illustrative annealing analysis is compatible with a broad activation spectrum, whose width the two reported recoveries do not determine." %
        (round(F["f_inf"], 2), round(MP["sites_per_dpa"])))
 para("The model is phenomenological and is not calibrated to any conductor; it has no pinning, so it says nothing about the critical current or its initial rise "
      "with fluence, and I have said so in the paper. The experimental values quoted are taken from the cited papers.", after=6)
@@ -94,6 +95,6 @@ para("All code, raw data and analysis scripts are public at %s, archived at http
 para("Thank you for considering the paper.")
 para("Yours sincerely,", after=18)
 para("Leon Sandler")
-out = os.path.join(HERE, "out", "Cover_Letter_SST_v1.docx")
+out = os.path.join(HERE, "out", "Cover_Letter_SST_v2.docx")
 doc.save(out)
 print("saved", out)

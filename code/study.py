@@ -20,6 +20,8 @@ single run can be repeated alone):
   tauphi        the relaxation time of the phase field in a frozen damage landscape
   fss           quenched site dilution, helicity modulus against f, L = 16-128, T = 0.35 (and 0.25)
   cluster       the same with compact damage clusters of radius 0-3
+  validation    control simulations of the twist response (clean lattice, imposed windings, static dilution against an independent
+                equilibrium code); validation_long repeats the diluted-lattice comparison with 4x longer runs and 16 maps
   tcurve        the BKT line T_BKT(f): helicity modulus against temperature at fixed dilution (maps damage to Tc)
 
     python study.py <study> [<study> ...] [--quick]
@@ -42,7 +44,7 @@ MASTER = 20261005
 QUICK = "--quick" in sys.argv
 NPROC = max(1, (os.cpu_count() or 2) - 1)
 CODES = {"steady": 1, "converge": 2, "branches": 3, "ramps": 4, "fieldfree": 5, "stiffness": 6, "stiff_L": 7,
-         "timescale": 8, "timescale_s": 9, "sensitivity": 10, "tauphi": 11, "fss": 12, "cluster": 13, "tcurve": 14, "closure0": 15, "stiffness_dmg": 16, "stiff_L2": 17, "closure0b": 18, "stiff_L3": 19}
+         "timescale": 8, "timescale_s": 9, "sensitivity": 10, "tauphi": 11, "fss": 12, "cluster": 13, "tcurve": 14, "closure0": 15, "stiffness_dmg": 16, "stiff_L2": 17, "closure0b": 18, "stiff_L3": 19, "validation": 20, "validation_long": 21}
 
 
 def phi0_of(L):
@@ -502,6 +504,98 @@ def study_closure0b():
             tasks.append(("closure0", "c0", with_rho(base(L=32, h0=0.4, beta=0.0, repair="reset0"), rho), (4, 0, rho_code(rho), s), dict(eq=2000, meas=3000, every=5)))
     runs, t = run_tasks("closure0b", tasks)
     save("closure0b", runs, {}, t)
+
+
+def run_static(pd, seed, g=None, w0=0, eq=1000, meas=3000, every=5):
+    """A lattice without damage or repair (lam0 = R = 0), optionally with a prescribed coupling map g and an imposed winding w0 along x:
+    the bond terms needed for the twist response and the equilibrium formula, and the winding number."""
+    p = Params(**pd)
+    lat = Lattice(p, seed)
+    if g is not None:
+        lat.g = g.copy()
+    if w0:
+        lat.th = lat.th + 2 * np.pi * w0 * np.arange(p.L)[None, :] / p.L
+    for _ in range(eq):
+        lat.step()
+    cx, sx, cy, sy, wm = [], [], [], [], []
+    for t in range(meas):
+        lat.step()
+        if t % every == 0:
+            a, b, c, d = lat.bond_terms()
+            cx.append(a), sx.append(b), cy.append(c), sy.append(d)
+            wm.append(lat.winding_x()[0])
+    return {"c_x": float(np.mean(cx)), "c_y": float(np.mean(cy)), "s_x": float(np.mean(sx)), "s_y": float(np.mean(sy)),
+            "var_s_x": float(np.var(sx)), "var_s_y": float(np.var(sy)), "w_mean": float(np.mean(wm)), "n": len(sx)}
+
+
+def task_study(kind, extra):
+    return "validation_long" if extra.get("long") else "validation"
+
+
+def task_valid(args):
+    kind, tag, pd, seed_code, phi0, extra = args
+    sd = seed_of(CODES[task_study(kind, extra)], *seed_code)
+    out = {"kind": kind, "tag": tag, "params": pd, "seed": seed_code, "phi0": phi0}
+    L = pd["L"]
+    if kind == "static_eq":                      # independent equilibrium code: Metropolis on the quenched lattice, helicity formula
+        q = Quenched(L, pd["T"], extra["f"], sd)
+        for _ in range(extra.get("eq", 1000)):
+            q.sweep()
+        hs = []
+        for t in range(extra.get("meas", 3000)):
+            q.sweep()
+            if t % 5 == 0:
+                hs.append(q.helicity())
+        out["ups_eq_static"] = float(np.mean(hs))
+        out["gmap_seed"] = sd
+        return out
+    g = None
+    if kind == "twist_diluted":                  # same coupling map as the static_eq run of the same seed
+        q = Quenched(L, pd["T"], extra["f"], seed_of(CODES[task_study(kind, extra)], *extra["static_code"]))
+        g = q.g
+    for sign in (+1, -1):
+        w0 = extra.get("w0_plus", 0) if sign > 0 else extra.get("w0_minus", 0)
+        q2 = dict(pd)
+        q2["twist"] = sign * phi0
+        out["plus" if sign > 0 else "minus"] = run_static(q2, sd, g=g, w0=w0, eq=extra.get("eq", 1000), meas=extra.get("meas", 3000))
+    return out
+
+
+def study_validation():
+    """Control simulations for the twist response (clean lattice, imposed windings, static dilution against an independent equilibrium code)."""
+    T = 0.35
+    pdc = lambda L: base(L=L, T=T, h0=0.0, lam0=0.0, R=0.0, beta=0.0, repair="keep")
+    tasks = []
+    for L in (16, 32, 64):
+        for c in (0.1, 0.3, 0.6, 1.0, 1.5):
+            for s in range(S(8)):
+                tasks.append(("twist_clean", "c%g" % c, pdc(L), (1, L, int(c * 10), s), round(c * np.pi / L, 5), {}))
+    for f in (0.1, 0.2):
+        for s in range(S(8)):
+            code = (2, 32, int(f * 100), s)
+            tasks.append(("static_eq", "f%g" % f, pdc(32), code, 0.0, {"f": f}))
+            tasks.append(("twist_diluted", "f%g" % f, pdc(32), code, phi0_of(32), {"f": f, "static_code": code}))
+    for s in range(S(8)):
+        for tag, wp, wm in (("w00", 0, 0), ("w11", 1, 1), ("w10", 1, 0)):
+            tasks.append(("twist_wound", tag, pdc(32), (3, 32, wp * 10 + wm, s), phi0_of(32), {"w0_plus": wp, "w0_minus": wm}))
+    runs, t = run_tasks("validation", tasks, worker=task_valid, cost=lambda t: -(t[2]["L"] ** 2))
+    save("validation", runs, {"T": T}, t)
+
+
+
+def study_validation_long():
+    """Longer runs (4x) of the diluted-lattice comparison, 16 maps, to test whether the small difference between the twist response and the
+    static equilibrium formula is a sampling effect."""
+    pdc = base(L=32, T=0.35, h0=0.0, lam0=0.0, R=0.0, beta=0.0, repair="keep")
+    tasks = []
+    for f in (0.1, 0.2):
+        for s in range(S(16)):
+            code = (2, 32, int(f * 100), s)
+            ex = {"f": f, "eq": 3000, "meas": 12000, "long": True}
+            tasks.append(("static_eq", "f%g" % f, pdc, code, 0.0, ex))
+            tasks.append(("twist_diluted", "f%g" % f, pdc, code, phi0_of(32), dict(ex, static_code=code)))
+    runs, t = run_tasks("validation_long", tasks, worker=task_valid)
+    save("validation_long", runs, {"T": 0.35}, t)
 
 
 def study_tcurve():

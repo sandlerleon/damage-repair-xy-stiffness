@@ -11,11 +11,12 @@ P("The experiments that bear on the model are those on REBCO coated conductors i
   "(i) The transition temperature decreases linearly with the calculated displacement damage, at the same rate for neutrons and for "
   "helium ions; for neutron-irradiated tapes the decrease is from about 90 K to 81 K and from about 94 K to 84 K at 3.7–3.8 mdpa, a "
   "fractional decrease of about %s [[adams2023]]. (ii) The critical current first rises with fluence, passes a temperature-dependent "
-  "maximum and falls below its pristine value at about 2 × 10^{22} m^{−2} at 50 K in most tapes, and the n-value decreases even where "
-  "the critical current is enhanced [[prokopec2015,fischer2018,fischer2019]]; this initial rise is due to added pinning and is outside "
+  "maximum and falls below its pristine value at fluences of the order of 10^{22} m^{−2} (at 50 K in most tapes), and the n-value decreases even where "
+  "the critical current is enhanced [[prokopec2015,fischer2018,fischer2019,unterrainer2022]]; this initial rise is due to added pinning and is outside "
   "the present model. (iii) The degradation of *T*_{c} and of the critical current density are closely related, attributed to a loss "
   "of superfluid density, and annealing for 12 h after a 5 °C min^{−1} ramp recovers about 25%% of the *T*_{c} decrease at 150 °C and about "
-  "60%% at 400 °C, the latter with a risk of oxygen loss [[unterrainer2022]]. These numbers are quoted from the cited papers; the "
+  "60%% at 400 °C, from near-linear increases of *T*_{c} with annealing temperature in several tapes (slopes of about 1.8–3.3 K per 100 °C); in an oxygen-poor "
+  "environment oxygen loss limits the anneal to about 220 °C, so the higher-temperature recovery refers to anneals in oxygen [[unterrainer2022]]. These numbers are quoted from the cited papers; the "
   "model is compared with them only in the limited sense below." % f3(MP["dTc_over_Tc"], 2))
 HD("4.2 From a damaged fraction to displacement damage", 2)
 P("The superfluid density, which the experiments identify as what the damage removes, is the physical counterpart of the stiffness Υ "
@@ -39,8 +40,8 @@ P("To relate the damaged fraction *f* of static damage to displacement damage we
   "of Υ(*T*) with 2*T*/π (Section 2.4) extrapolated in 1/ln²*L*, falls from the clean value %s [[hasenbusch2005]] to %s (95%% interval %s–%s) at "
   "*f* = 0.05 and to %s at *f* = 0.10 (Figure 8a). If the *T*_{c} of the conductor is taken to follow *T*_{BKT}(*f*), a fractional decrease "
   "of %s at 3.7–3.8 mdpa [[adams2023]] corresponds to *f* = %s, that is to *a* = %s model sites made non-superconducting per dpa (range %s–%s "
-  "across the interval estimates and the two tapes). Whether this is reasonable depends on what a site represents: for a site equal to a "
-  "coherence cell it means that one displaced atom disrupts about ten such cells, which is a testable number but not one we can test here. "
+  "across the interval estimates and the two tapes). This number is an effective conversion factor, not a measured or derived physical quantity: it depends on what a model site is taken to represent "
+  "and on the assumption that *T*_{c} follows *T*_{BKT}(*f*), and we attach no further physical interpretation to it. "
   "The assumption that *T*_{c} follows *T*_{BKT}(*f*) of a two-dimensional XY model is an assumption and not a result; REBCO is a layered "
   "three-dimensional superconductor, and the proportionality of *T*_{c} to the phase stiffness is a relation that the "
   "experiments suggest [[unterrainer2022]] but that the model does not derive."
@@ -59,17 +60,18 @@ P("**Rates, probabilities and time.** The model’s probabilities are per kineti
   % (f3(R["timescale"]["collapse"]["keep"]["rho_hazard_over_rho_at_lam0.04"], 2), f3(R["timescale"]["collapse"]["keep"]["rho_hazard_over_rho_at_lam0.08"], 2)))
 HD("4.3 Annealing", 2)
 P("The rule θ → 0, the instant restoration of coupling and a single repair probability for all damaged sites are not physical descriptions of annealing. "
-  "The first is replaced here by the *keep* and *neighbor* rules (Section 3.3), and we turn to the recovery kinetics. Take 12 h isothermal "
+  "The first is replaced here by the *keep* and *neighbor* rules (Section 3.3), and we turn to the recovery kinetics. Consider, illustratively, 12 h isothermal "
   "anneals [[unterrainer2022]] of a tape damaged to the state above (*f* = %s), with a distribution of activation energies *g*(*E*) among "
   "the damaged sites, so that the fraction of sites still damaged after the anneal is ∫*g*(*E*)exp[−*ν*_{a}*t* exp(−*E*/*k*_{B}*T*_{a})]d*E* and the recovered fraction of the *T*_{c} decrease follows from "
   "*T*_{BKT}(*f*). A single activation energy gives a recovery that rises from 0 to 100%% over a few tens of kelvin, which is not what is "
-  "reported (about 25%% at 150 °C and 60%% at 400 °C, increasing roughly linearly with the annealing temperature). A Gaussian spectrum "
+  "reported (about 25%% at 150 °C and 60%% at 400 °C, the latter in oxygen, increasing roughly linearly with the annealing temperature). A Gaussian spectrum "
   "reproduces both reported values for *ν*_{a} = 10^{13} s^{−1} with a mean of %s eV and a standard deviation of %s eV, and a flat spectrum "
-  "does so with a width of %s eV (from %s to %s eV); the two-parameter fit to two numbers is not a validation, and it gives a testable "
+  "does so with a width of %s eV (from %s to %s eV); the fit of two parameters to two numbers is not a validation and does not determine the width uniquely (the authors of the experiment infer only "
+  "qualitatively a very broad distribution [[unterrainer2022]]), and it gives a testable "
   "consequence only through its shape: a recovery of %s at 275 °C for both, and a recovery of %s already at 25 °C for the flat spectrum. Varying "
-  "*ν*_{a} from 10^{11} to 10^{15} s^{−1} shifts the energies by about %s eV and leaves the shape unchanged. What survives any such choice is the "
-  "statement that recovery growing linearly over 150–400 °C in a 12 h anneal requires an activation spectrum much broader than a single process "
-  "(of the order of 1 eV or more), if the process is the independent thermally activated repair of independent damaged sites assumed here."
+  "*ν*_{a} from 10^{11} to 10^{15} s^{−1} shifts the energies by about %s eV and leaves the shape unchanged. What survives any such choice is only the "
+  "qualitative statement that recovery growing linearly over 150–400 °C in a 12 h anneal requires an activation spectrum much broader than a single process "
+  "(the model fits give widths of the order of an electronvolt, which should be read as illustrative values of these two assumed forms), if the process is the independent thermally activated repair of independent damaged sites assumed here."
   % (f3(MP["f_at_dpa"], 3), f3(g13["E0_eV"], 2), f3(g13["sigma_eV"], 2), f3(a13["width_eV"], 1), f3(a13["Emin_eV"], 2), f3(a13["Emax_eV"], 2),
      "%d%%" % round(100 * g13["recovery_at_275C"]), "%d%%" % round(100 * a13["recovery_25C"]),
      f3(AG["%g" % 1e15]["E0_eV"] - AG["%g" % 1e11]["E0_eV"], 1)))

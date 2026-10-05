@@ -95,3 +95,41 @@ P("**Static dilution.** For the field-free transition of a lattice with quenched
   "1/ln²*L* and by a Weber–Minnhagen form [[wm1988]]. The uncertainty of each crossing (a bootstrap over disorder realizations) is "
   "distinguished throughout from the scatter of the crossings over sizes, which is not an error estimate and no substitute for the "
   "extrapolation.")
+HD("2.5 Validation of the twist response", 2)
+VAL = R["validation"]
+_vc, _vd, _vl, _vw = VAL["clean"], VAL["diluted"], VAL["diluted_long"], VAL["wound"]
+_Ls = (16, 32, 64)
+_cs = ("0.1", "0.3", "0.6", "1", "1.5")
+_rowsv = [["*L*"] + ["φ_{0} = %s π/*L*" % c for c in _cs]]
+for _L in _Ls:
+    _rowsv.append([str(_L)] + [pm(_vc["%d|%s" % (_L, c)]["ups_tw"], 3) for c in _cs])
+_dmax = max(abs(_vc["%d|0.3" % L]["ups_tw"][0] - _vc["%d|0.3" % L]["ups_eq"][0]) for L in _Ls)
+spm = lambda v: ("%+.3f ± %.3f" % (v[0], v[1])).replace("-0.000", "0.000").replace("+0.000", "0.000")
+_slips = sum(v["n_flagged"] for v in _vc.values())
+P("The twist response is the central measurement of this paper, and the equilibrium formula that it replaces fails in the driven state, so it was "
+  "validated in control simulations with the same engine and observables, with damage and repair switched off (λ_{0} = *R* = 0), at *T* = %s and "
+  "*h*_{0} = 0. **Normalization and linearity.** On the clean lattice, where equation (7) is exact, the twist response at φ_{0} = 0.3π/*L* is "
+  "%s, %s and %s for *L* = 16, 32 and 64 (8 seeds), equal to the equilibrium formula evaluated on the same runs to within %s and close to the first-order "
+  "spin-wave value 1 − *T*/4 = %s; the normalization 2φ_{0} and the sign convention are therefore right, and Υ_{tw} does not depend on *L*. It "
+  "varies little with the twist amplitude (@T:valid@): the decrease with φ_{0} is the anharmonic (cosine) nonlinearity of the response, and is "
+  "visible only for the smallest lattice and φ_{0} > 0.6π/*L*. No clean-lattice run changed its winding number (%d slips in %d pairs); phase slips matter in states "
+  "with vortices, and an earlier run of the damage–repair states with a fixed φ_{0} = 0.1, which exceeds π/*L* for *L* ≥ 32, was contaminated by "
+  "them and was discarded in favor of φ_{0} = 0.3π/*L*."
+  % (f3(VAL["T"], 2), pm(_vc["16|0.3"]["ups_tw"], 3), pm(_vc["32|0.3"]["ups_tw"], 3), pm(_vc["64|0.3"]["ups_tw"], 3), f3(max(_dmax, 0.001), 3), f3(VAL["harmonic_clean"], 4),
+     _slips, sum(v["n"] for v in _vc.values())))
+TAB(_rowsv, "Twist-response stiffness Υ_{tw} (mean ± s.e., 8 seeds) of the clean lattice (no damage or repair, *T* = 0.35) against the twist angle φ_{0} in units of π/*L*.",
+    widths=[0.6, 1.2, 1.2, 1.2, 1.2, 1.2], size=8, label="valid")
+P("**Windings.** A frozen global winding number *W* carries the current Υ(2π*W*/*L* − φ), so a pair of runs with different *W* gives a wrong response unless it is "
+  "corrected by the integer difference. This was tested by preparing the two runs of each pair with imposed windings (*L* = 32, %d seeds): with *W* = 0 in both, "
+  "Υ_{tw} = %s; with *W* = 1 in both, %s (a state with *W* = 1 is twisted by 2π/*L* per row, which lowers the response by about 2%%, as the cosine nonlinearity, cos(2π/*L*) = %s, suggests); with *W* = 1 in one run and "
+  "0 in the other, the uncorrected value is %s and the corrected value, which is the one used throughout the damage–repair data (Section 3.3), is %s, within 1%% of the clean value. "
+  "**Independent equilibrium code.** On static randomly diluted lattices (*L* = 32, *f* = 0.1 and 0.2, 16 coupling maps, runs of 12000 steps after 3000) the twist response "
+  "of the dynamic engine, on the same coupling maps, is %s and %s, against %s and %s from the equilibrium helicity modulus computed by the separate static Metropolis "
+  "code used in Section 3.5 (paired differences %s and %s) and %s and %s from the fluctuation formula on the same runs. With runs a quarter as long (8 maps) the response "
+  "at *f* = 0.2 was lower than the fluctuation formula by %s, a sampling effect that disappears in the longer runs, which is a reminder that the stiffness of near-critical "
+  "states needs long runs; the damage–repair data use 6000 measured steps and their intervals are over seeds. The twist response and the equilibrium formula agree in "
+  "equilibrium, as they should, and differ in the driven damage–repair state, which is the result of Section 3.3."
+  % (_vw["w00"]["n"], pm(_vw["w00"]["ups_tw"], 3), pm(_vw["w11"]["ups_tw"], 3), f3(math.cos(2 * math.pi / 32), 3), pm(_vw["w10"]["ups_uncorrected"], 2),
+     pm(_vw["w10"]["ups_tw"], 3), pm(_vl["0.1"]["ups_tw"], 3), pm(_vl["0.2"]["ups_tw"], 3), pm(_vl["0.1"]["ups_eq_static"], 3), pm(_vl["0.2"]["ups_eq_static"], 3),
+     spm(_vl["0.1"]["diff_tw_minus_static"]), spm(_vl["0.2"]["diff_tw_minus_static"]), pm(_vl["0.1"]["ups_eq_same_run"], 3), pm(_vl["0.2"]["ups_eq_same_run"], 3),
+     pm((-_vd["0.2"]["diff_tw_minus_eq_same_run"][0], _vd["0.2"]["diff_tw_minus_eq_same_run"][1]), 3)))

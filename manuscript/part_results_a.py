@@ -84,7 +84,7 @@ P("The field *h*_{0} aligns the phases by itself, and the rule θ → 0 selects 
   "rules there is a narrow range of ρ in which the lattice goes from an incoherent state (*U* at the finite-size floor of about %s for random "
   "phases at *L* = 32) to a coherent one, and the position of this range is set by the feedback and by the repair rule: with state-independent damage "
   "(β = 0) the stiffness sets in at ρ = %s, with the baseline feedback (β = 20) at ρ = %s for *keep* and ρ = %s for *neighbor* (*L* = 32, Figure 4a; "
-  "the thresholds for *L* → ∞ are bracketed below). The "
+  "finite-size estimates of the thresholds are given below). The "
   "reason is the one built into the model: damage is faster where phase order is already disrupted, so a coherent region must be repaired "
   "faster than a disordered one is damaged, and a repaired site that rejoins the coherence around it (*neighbor*) helps more than one that is "
   "left to relax (*keep*). With *reset0* there is no transition: the resets themselves align the phases, and *U* rises smoothly (Figure 3a). "

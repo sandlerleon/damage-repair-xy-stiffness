@@ -48,17 +48,17 @@ rows.append(["spread over the rules", f3(SL["2.5"]["spread_base"]), f3(SL["2.5"]
 TAB(rows, "Coherence *U* (mean ± s.e., 8 seeds, *L* = 32, β = 20, *h*_{0} = 0.4) at the baseline kinetics (λ_{0} = 0.02, two phase sweeps per "
           "step, Ω = 0.01) and in the slowest-damage state scanned (λ_{0} = 0.005, eight sweeps, Ω = 6 × 10^{−4}), for the three repair rules.",
     widths=[1.5, 1.2, 1.4, 1.2, 1.4], label="slow")
-P("The decisive result is the last row of @T:slow@. At the baseline kinetics the three repair rules differ in *U* by %s at ρ = 2.5 and %s at ρ = 5; at the "
+P("The central result is the last row of @T:slow@. At the baseline kinetics the three repair rules differ in *U* by %s at ρ = 2.5 and %s at ρ = 5; at the "
   "slowest damage scanned they differ by %s and %s, a tenfold convergence (Figure 6d, in which the spread falls roughly in proportion to Ω), and "
-  "*U* at ρ = 5 is %s, %s and %s for *reset0*, *keep* and *neighbor*. The repair-to-damage ratio is therefore a sufficient control parameter in the "
-  "limit Ω → 0 (and for small per-step probabilities): there the steady state no longer depends on the repair rule or on λ_{0} separately, and the "
-  "dependences found at finite Ω are the finite-rate corrections of the three effects above. Two consequences follow. The values at the baseline "
-  "kinetics, such as @T:steady@, are values at a finite Ω = 0.01 and lie up to %s above the slow-damage limit at ρ = 5 for *reset0*; and the equilibrium "
-  "fluctuation formula for the stiffness, which fails at finite Ω (Section 3.3), should approach the twist response as Ω → 0. It does: for "
+  "*U* at ρ = 5 is %s, %s and %s for *reset0*, *keep* and *neighbor*. The numerical evidence therefore supports the repair-to-damage ratio becoming the controlling parameter as Ω falls: "
+  "over the range scanned the dependence on the repair rule and on λ_{0} separately shrinks roughly in proportion to Ω, and at the slowest damage it is small. "
+  "The mathematical limit Ω → 0 lies beyond the range tested, and we do not claim it; the dependences found at finite Ω are the finite-rate corrections of the three effects above. Two consequences follow. The values at the baseline "
+  "kinetics, such as @T:steady@, are values at a finite Ω = 0.01 and lie up to %s above the slowest-damage value at ρ = 5 for *reset0*; and the equilibrium "
+  "fluctuation formula for the stiffness, which fails at finite Ω (Section 3.3), should approach the twist response as Ω falls. Over the range scanned it does: for "
   "the field-free *keep* state at ρ = 10 and λ_{0} = 0.005 the ratio Υ_{eq}/Υ_{tw} is %s, %s and %s at Ω = %s, %s and %s (Figure 6f), the "
   "stiffness itself changing by only %s over the same range. In a conductor the damage and the annealing proceed over hours to years, while the "
   "relaxation of the superconducting phase is expected to be many orders of magnitude faster (we do not quantify it here), so that experiments "
-  "should lie in the regime Ω ≪ 10^{−3}, where ρ is the controlling quantity."
+  "should lie at much smaller Ω than scanned, where ρ would be the controlling quantity if the trend continues; that extrapolation is an assumption."
   % (f3(SL["2.5"]["spread_base"], 2), f3(SL["5"]["spread_base"], 2), f3(SL["2.5"]["spread_slow"], 3), f3(SL["5"]["spread_slow"], 3),
      f3(SL["5"]["reset0"]["U_slow"][0], 2), f3(SL["5"]["keep"]["U_slow"][0], 2), f3(SL["5"]["neighbor"]["U_slow"][0], 2),
      f3(SL["5"]["reset0"]["U_base"][0] - SL["5"]["reset0"]["U_slow"][0], 2),

@@ -11,11 +11,12 @@ P("**What the results say.** The mean-field reduction is an exact description of
   "preserves the phase symmetry, the lattice has a threshold in ρ for spontaneous coherence, with phase correlations that change from exponential to "
   "algebraic and a stiffness, measured as a twist response, that is zero below it and large above it; state-dependent damage raises the threshold by a "
   "factor of about three over state-independent damage, because disordered regions are damaged faster, and a repair that restores the phase of the "
-  "surroundings lowers it by a quarter. The ratio ρ is a sufficient control parameter in the limit in which the damage is slow compared with the "
-  "relaxation of the phase, which we expect to be the limit of irradiation and annealing experiments, and in that limit the repair rule becomes irrelevant.")
+  "surroundings lowers it by a quarter. Numerically, ρ becomes the controlling parameter as the damage becomes slow compared with the "
+  "relaxation of the phase, which we expect to be the regime of irradiation and annealing experiments; over the range of kinetics scanned the repair rule matters less and less, "
+  "and we do not claim the mathematical limit.")
 P("**What it does not say.** The equilibrium Nelson–Kosterlitz criterion and the equilibrium helicity formula are not applied to the dynamic states, "
-  "because the formula fails there (Section 3.3); the static dilution is the only place where they are used. The threshold in the thermodynamic limit is "
-  "bracketed, not determined: for *keep* between ρ = %s and %s, for *neighbor* between %s and %s (@T:thr@), from sizes up to *L* = 96 and 64. "
+  "because the formula fails there (Section 3.3); the static dilution is the only place where they are used. The thresholds are finite-size estimates, not "
+  "thermodynamic-limit bounds, and rest on operational cutoffs: for *keep* between ρ = %s and %s, for *neighbor* between %s and %s (@T:thr@), from sizes up to *L* = 96 and 64. "
   "Whether the stiffness jumps at the threshold, as it does for a BKT transition, or rises continuously over an interval narrower than our grid is "
   "not resolved. The absence of hysteresis refers to the sizes, run lengths and feedback strengths tested. No entropy-production result is claimed: "
   "the entropy production of a closed-form two-state cycle is a property of a framework, not a measurement of the simulated dynamics." % (f3(_TK["rho_vanished_max"], 2) if _TK["rho_vanished_max"] else "—", f3(_TK["rho_finite_min"], 2),
@@ -33,11 +34,11 @@ P("A minimal damage–repair XY model gives three results that bear on the phase
   "fails, and no hysteresis or dependence on the initial state is resolved. Second, repair restores spontaneous phase coherence and a "
   "twist-response stiffness above a threshold ratio of repair to damage that depends on the feedback and on the repair rule, the equilibrium "
   "fluctuation formula underestimates that stiffness by up to about %d%% near the threshold, and the stiffness, not the magnitude *U* of the order, is the "
-  "quantity that distinguishes the coherent from the incoherent state. Third, the repair-to-damage ratio is a sufficient control parameter only in the limit of "
-  "slow damage relative to phase relaxation, in which the repair rule no longer matters, and the finite-rate values differ from the slow-damage values by "
+  "quantity that distinguishes the coherent from the incoherent state. Third, the numerical evidence is that the repair-to-damage ratio becomes the controlling parameter as the damage becomes slow relative to phase relaxation, "
+  "the repair rule mattering less and less, and the finite-rate values differ from the slowest-damage values by "
   "up to %s in *U*. The static dilution crossing, *f*_{KT} = %s ± 0.01 at *T* = 0.35, and the clustered-damage results complete the picture; "
-  "an illustrative mapping to displacement damage and annealing gives about ten model sites per dpa and an activation spectrum of about 1 eV or more in "
-  "width, and a calibration, which would need data that we did not have, remains to be done." %
+  "an illustrative effective mapping to displacement damage gives about ten model sites per dpa, and the annealing data are compatible with a broad spectrum "
+  "of activation energies, whose width the two reported numbers do not determine; a calibration, which would need data that we did not have, remains to be done." %
   (_eq_under(), f3(R["timescale"]["slow_limit"]["5"]["reset0"]["U_base"][0] - R["timescale"]["slow_limit"]["5"]["reset0"]["U_slow"][0], 2),
    f3(round(_FSS["f_inf"], 2), 2)))
 HD("Declarations")

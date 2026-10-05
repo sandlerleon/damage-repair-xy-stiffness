@@ -48,7 +48,7 @@ stiffness of the non-equilibrium steady state (with winding numbers recorded), c
 correlations C(r), for repair rules that preserve the U(1) symmetry. (iv) The competition between damage rate and phase relaxation
 (timescale parameter) and the discrete-time effects. (v) Finite-size scaling of the quenched dilution transition to L = 128, clustered damage,
 the BKT line T_BKT(f), and an illustrative mapping to displacement damage and annealing.</p>"""
-DESC_CODE = ABOUT + """<p>Contents: the engine, its test suite, eleven studies (<code>code/study.py</code>), the analysis and figure scripts,
+DESC_CODE = ABOUT + """<p>Contents: the engine, its test suite, the numerical studies (<code>code/study.py</code>, including the twist-response validation), the analysis and figure scripts,
 the manuscript build script, all raw run outputs, the figures and the manuscript. Every run is seeded from SeedSequence([master, code]) and
 can be repeated alone. Manuscript preprint: <a href="https://doi.org/{PP}">{PP}</a>.</p>"""
 DESC_PAPER = ABOUT + """<p>Code, raw data and analysis: <a href="%s">%s</a>, archived at
@@ -88,32 +88,45 @@ def finish(did, meta):
     print("   PUBLISHED  DOI %s  concept %s" % (rec.get("doi"), rec.get("conceptdoi")))
 
 
+def clear_inherited(d):
+    """A new-version draft starts with the files of the previous version; remove them so that only this version's files remain."""
+    for fid in d.get("inherited_files", []):
+        req("DELETE", "%s/deposit/depositions/%s/files/%s" % (API, d["id"], fid))
+
+
+NEWVER = ("<p><strong>Version %s.</strong> Revised after review: adds control simulations of the twist response (clean lattices, imposed windings, an independent "
+          "static code; Section 2.5), qualifies the threshold brackets as finite-size estimates, presents the slow-damage convergence as numerical evidence, removes the "
+          "interpretation of the sites-per-dpa factor, and qualifies the annealing analysis.</p>")
+
+
 def software():
     st = json.load(open(STATE))
-    d = st["software"]
+    d = st["software_" + VERSION] if "software_" + VERSION in st else st["software"]
     tmp = os.path.join(os.environ.get("TEMP", "."), "damage-repair-xy-stiffness-%s.zip" % VERSION)
     subprocess.check_call(["git", "-C", REPO, "archive", "--format=zip", "--prefix=damage-repair-xy-stiffness-%s/" % VERSION, "-o", tmp, TAG])
     print("=== software draft %s (reserved DOI %s)" % (d["id"], d["doi"]))
+    clear_inherited(d)
     upload(d["bucket"], tmp, os.path.basename(tmp))
-    meta = {"title": TITLE_CODE, "upload_type": "software", "description": DESC_CODE.replace("{PP}", st["publication"]["doi"]),
+    meta = {"title": TITLE_CODE, "upload_type": "software", "description": (NEWVER % VERSION if VERSION != "1.0.0" else "") + DESC_CODE.replace("{PP}", st.get("publication_v" + MS, st["publication"])["doi"]),
             "creators": CREATORS, "keywords": KEYWORDS, "access_right": "open", "license": "mit-license", "version": VERSION, "language": "eng",
             "prereserve_doi": {"doi": d["doi"]},
             "related_identifiers": [{"identifier": GITHUB + "/tree/" + TAG, "relation": "isSupplementTo", "scheme": "url"},
-                                    {"identifier": st["publication"]["doi"], "relation": "isSupplementTo", "scheme": "doi"},
+                                    {"identifier": st.get("publication_v" + MS, st["publication"])["doi"], "relation": "isSupplementTo", "scheme": "doi"},
                                     {"identifier": "10.5281/zenodo.21223569", "relation": "isDerivedFrom", "scheme": "doi"}]}
     finish(d["id"], meta)
 
 
 def preprint():
     st = json.load(open(STATE))
-    d = st["publication"]
+    d = st["publication_v" + MS] if "publication_v" + MS in st else st["publication"]
     print("=== preprint draft %s (reserved DOI %s)" % (d["id"], d["doi"]))
+    clear_inherited(d)
     for name in ("Damage_Repair_Phase_Stiffness_XY_v%s.docx" % MS, "Damage_Repair_Phase_Stiffness_XY_v%s.pdf" % MS):
         upload(d["bucket"], os.path.join(REPO, "manuscript", name), name)
     meta = {"title": TITLE_PAPER, "upload_type": "publication", "publication_type": "preprint",
-            "description": DESC_PAPER.replace("{SW}", st["software"]["doi"]), "creators": CREATORS, "keywords": KEYWORDS, "access_right": "open",
+            "description": (NEWVER % ("v" + MS) if MS != "1" else "") + DESC_PAPER.replace("{SW}", st.get("software_" + VERSION, st["software"])["doi"]), "creators": CREATORS, "keywords": KEYWORDS, "access_right": "open",
             "license": "cc-by-4.0", "version": MS, "language": "eng", "prereserve_doi": {"doi": d["doi"]},
-            "related_identifiers": [{"identifier": st["software"]["doi"], "relation": "isSupplementedBy", "scheme": "doi"},
+            "related_identifiers": [{"identifier": st.get("software_" + VERSION, st["software"])["doi"], "relation": "isSupplementedBy", "scheme": "doi"},
                                     {"identifier": GITHUB, "relation": "isSupplementedBy", "scheme": "url"},
                                     {"identifier": "10.5281/zenodo.21210708", "relation": "references", "scheme": "doi"},
                                     {"identifier": "10.5281/zenodo.21223569", "relation": "references", "scheme": "doi"}]}

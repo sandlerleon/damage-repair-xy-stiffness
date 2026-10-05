@@ -42,12 +42,14 @@ P("Is the threshold a finite-size effect? Deep in the coherent state the stiffne
   "ρ = 7 it falls with size (%s at *L* = 24, %s at 96) and is zero within error at the largest size, whereas at ρ = 8 it is finite and nearly "
   "size-independent (%s at *L* = 32, %s at 96, a decrease of %s that has stopped by *L* = 64). We call the stiffness *vanished* at a "
   "ρ if the twist response at the largest size is below 0.05 (with at least three sizes) and *finite* if it exceeds 0.15 there and has not fallen below "
-  "0.7 of its value at the smallest size; the threshold is bracketed by the largest vanished and the smallest finite ρ. In the thermodynamic limit "
-  "it then lies between ρ = %s and %s for *keep* (*L* up to 96) and between %s and %s for *neighbor* (*L* up to 64) (@T:thr@). At the lowest ρ at "
+  "0.7 of its value at the smallest size; the finite-size estimate of the threshold is bracketed by the largest vanished and the smallest finite ρ. The cutoffs 0.05, 0.15 and "
+  "0.7 are operational choices, not properties of the model, and another choice would move the brackets. For the sizes studied the estimate lies "
+  "between ρ = %s and %s for *keep* (*L* up to 96) and between %s and %s for *neighbor* (*L* up to 64) (@T:thr@); these brackets are consistent with a "
+  "threshold, and are not bounds on its value in the thermodynamic limit. At the lowest ρ at "
   "which the stiffness is finite its value is %s ± %s for *keep* (*L* = %s) and %s ± %s for *neighbor* (*L* = %s), larger than 2*T*/π = %s. "
   "For *keep* the approach to the threshold is visible in the size dependence (@T:thr@): at ρ = 7.25 and 7.5 the stiffness still falls with *L* "
-  "(%s → %s and %s → %s from *L* = 32 to 96), while at ρ = 7.75 it is size-independent at %s ± %s (*L* = 96), so the threshold lies in the upper "
-  "part of the bracket, probably between 7.5 and 7.75. A stiffness that decreases with size through 2*T*/π and settles above it just beyond the "
+  "(%s → %s and %s → %s from *L* = 32 to 96), while at ρ = 7.75 it is size-independent at %s ± %s (*L* = 96), so the finite-size estimate of the threshold lies in the upper "
+  "part of the bracket, probably between 7.5 and 7.75 for *L* ≤ 96. A stiffness that decreases with size through 2*T*/π and settles above it just beyond the "
   "threshold is what a BKT-type continuous onset looks like; our data are compatible with it and do not exclude a discontinuity narrower than "
   "the step of 0.25 in ρ. No hysteresis between the two starts is resolved (Figure 3c)."
   % (f3(min(yL("keep", L, 10.0)[0] for L in (24, 32, 48, 64, 96)), 2), f3(max(yL("keep", L, 10.0)[0] for L in (24, 32, 48, 64, 96)), 2),
@@ -59,4 +61,4 @@ P("Is the threshold a finite-size effect? Deep in the coherent state the stiffne
      f3(yL("keep", 32, 7.25)[0], 2), f3(yL("keep", 96, 7.25)[0], 2), f3(yL("keep", 32, 7.5)[0], 2), f3(yL("keep", 96, 7.5)[0], 2),
      f3(yL("keep", 96, 7.75)[0], 2), f3(yL("keep", 96, 7.75)[1], 2)))
 TAB(rows, "Twist-response stiffness Υ_{tw} (mean ± s.e.) of the field-free steady state (β = 20, *T* = 0.35, ordered start, 6–10 seeds) against the lattice "
-          "size *L* across the threshold, with the status assigned by the criterion in the text.", widths=[0.9, 0.5, 0.95, 0.95, 0.95, 0.95, 0.95, 0.8], size=7.5, label="thr")
+          "size *L* across the threshold, with the status assigned by the operational criterion in the text (not a determination of the thermodynamic limit).", widths=[0.9, 0.5, 0.95, 0.95, 0.95, 0.95, 0.95, 0.8], size=7.5, label="thr")
