@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Cover letter for the submission to Superconductor Science and Technology (original submission); numbers from results.json.
 
-    python build_cover_letter.py     ->  out/Cover_Letter_SST_v3.docx
+    python build_cover_letter.py     ->  out/Cover_Letter_SST_v4.docx
 """
 import json
 import math
@@ -18,7 +18,7 @@ from docx_helpers import new_document  # noqa: E402
 
 R = json.load(open(os.path.join(HERE, "..", "results", "results.json"), encoding="utf-8"))
 ZEN = json.load(open(os.path.join("C:" + os.sep, "YouTube", "_dxy_zenodo_state.json")))
-SW, PP = ZEN["software_1.2.0"]["doi"], ZEN["publication_v3"]["doi"]
+SW, PP = ZEN["software_1.2.1"]["doi"], ZEN["publication_v4"]["doi"]
 REPO = "https://github.com/sandlerleon/damage-repair-xy-stiffness"
 TH = R["thresholds"]
 SL = R["timescale"]["slow_limit"]["5"]
@@ -94,6 +94,6 @@ para("All code, raw data and analysis scripts are public at %s, archived at http
 para("Thank you for considering the paper.")
 para("Yours sincerely,", after=18)
 para("Leon Sandler")
-out = os.path.join(HERE, "out", "Cover_Letter_SST_v3.docx")
+out = os.path.join(HERE, "out", "Cover_Letter_SST_v4.docx")
 doc.save(out)
 print("saved", out)

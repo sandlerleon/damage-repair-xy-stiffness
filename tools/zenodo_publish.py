@@ -100,6 +100,7 @@ def clear_inherited(d):
 NOTES = {"1.1.0": "Revised after review: adds control simulations of the twist response (clean lattices, imposed windings, an independent static code; Section 2.5), "
                   "qualifies the threshold brackets as finite-size estimates, presents the slow-damage convergence as numerical evidence, removes the interpretation of "
                   "the sites-per-dpa factor, and qualifies the annealing analysis.",
+         "1.2.1": "Language edit (Rubriq) merged into the manuscript: commas, spelling variants and wording-neutral substitutions only; no change to results or claims.",
          "1.2.0": "Adds a subsection on experimental validation using fission-reactor irradiation (Section 4.5), softens two statements of the abstract, and removes "
                   "a reference to separate work."}
 NEWVER = "<p><strong>Version %s.</strong> " + NOTES.get(VERSION, "Revised.") + "</p>"

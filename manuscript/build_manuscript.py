@@ -29,7 +29,7 @@ OUT = os.path.join(HERE, "out")
 os.makedirs(OUT, exist_ok=True)
 R = json.load(open(os.path.join(RESDIR, "results.json")))
 ZEN = json.load(open(os.path.join("C:" + os.sep, "YouTube", "_dxy_zenodo_state.json")))
-SW_DOI, PP_DOI = ZEN["software_1.2.0"]["doi"], ZEN["publication_v3"]["doi"]
+SW_DOI, PP_DOI = ZEN["software_1.2.1"]["doi"], ZEN["publication_v4"]["doi"]
 REPO = "https://github.com/sandlerleon/damage-repair-xy-stiffness"
 DB = RF.load()
 
@@ -147,7 +147,7 @@ run("part_back.py")                                                 # 5, 6, decl
 
 doc.core_properties.author = "Leon Sandler"
 doc.core_properties.title = TITLE
-VERSION = os.environ.get("MS_VERSION", "3")
+VERSION = os.environ.get("MS_VERSION", "4")
 outp = os.path.join(OUT, "Damage_Repair_Phase_Stiffness_XY_v%s.docx" % VERSION)
 doc.save(outp)
 json.dump(TLAB_NEW, open(LABFILE, "w"))
